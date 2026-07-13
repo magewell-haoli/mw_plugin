@@ -1,6 +1,6 @@
 ////////////////////////////////////////////////////////////////////////////////
 // CONFIDENTIAL and PROPRIETARY software of Magewell Electronics Co., Ltd.
-// Copyright (c) 2011-2019 Magewell Electronics Co., Ltd. (Nanjing)
+// Copyright (c) 2011-2026 Magewell Electronics Co., Ltd. (Nanjing)
 // All rights reserved.
 // This copyright notice MUST be reproduced on all authorized copies.
 ////////////////////////////////////////////////////////////////////////////////
