@@ -18,6 +18,14 @@ extern "C" {
 
 #define MW_PLUGIN_VERSION_NUMBER 1000001
 
+typedef enum _mw_plugin_video_stream_index {
+    e_video_stream_index_main = 0,
+    e_video_stream_index_sub,
+    e_video_stream_index_shq,
+
+    e_video_stream_index_max
+} mw_plugin_video_stream_index_t;
+
 typedef struct _mw_plugin_time_code {
     uint8_t hours;      // Hours (0-23)
     uint8_t minutes;    // Minutes (0-59)
@@ -64,10 +72,10 @@ void mw_plugin_shutdown();
 /** @brief Create metadata string for a video frame.
     @param p_video_frame Pointer to the video frame descriptor.
     @return Allocated metadata string, or NULL on failure. The string length must not exceed 255. */
-char* mw_plugin_video_frame_metadata_create(const mw_plugin_video_frame_t *p_video_frame);
+char* mw_plugin_video_frame_metadata_create(uint32_t stream_index, const mw_plugin_video_frame_t *p_video_frame);
 
 /** @brief Free the metadata string returned by mw_plugin_video_frame_metadata_create. */
-void mw_plugin_video_frame_metadata_free(char *metadata);
+void mw_plugin_video_frame_metadata_free(uint32_t stream_index, char *metadata);
 
 /** @brief Create metadata string for an audio frame.
     @param p_audio_frame Pointer to the audio frame descriptor.

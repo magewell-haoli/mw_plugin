@@ -41,8 +41,9 @@ static void get_fourcc_name(mw_fourcc_t fourcc, char name[5])
     name[4] = '\0';
 }
 
-char* mw_plugin_video_frame_metadata_create(const mw_plugin_video_frame_t *p_video_frame)
+char* mw_plugin_video_frame_metadata_create(uint32_t stream_index, const mw_plugin_video_frame_t *p_video_frame)
 {
+    if (stream_index > e_video_stream_index_max) return NULL;
     if (!p_video_frame) return NULL;
 
     /*
@@ -60,13 +61,15 @@ char* mw_plugin_video_frame_metadata_create(const mw_plugin_video_frame_t *p_vid
     char *metadata = (char *)malloc(256);
     if (!metadata) return NULL;
 
-    snprintf(metadata, 256, "<magewell_metadata type=\"video\" time=\"%s\"/>", time_buf);
+    snprintf(metadata, 256, "<magewell_metadata type=\"video-%d\" time=\"%s\"/>", stream_index, time_buf);
 
     return metadata;
 }
 
-void mw_plugin_video_frame_metadata_free(char *metadata)
+void mw_plugin_video_frame_metadata_free(uint32_t stream_index, char *metadata)
 {
+    if (stream_index > e_video_stream_index_max) return;
+
     if (metadata) free(metadata);
 }
 
