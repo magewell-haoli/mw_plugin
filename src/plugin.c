@@ -13,13 +13,13 @@ int mw_plugin_version()
 
 bool mw_plugin_init()
 {
-    printf("mw_plugin_init ok");
+    printf("mw_plugin_init ok\n");
     return true;
 }
 
 void mw_plugin_shutdown()
 {
-    printf("mw_plugin_shutdown ok");
+    printf("mw_plugin_shutdown ok\n");
 }
 
 static void get_time_string(char *buf, size_t buf_size)
