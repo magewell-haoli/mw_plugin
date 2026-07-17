@@ -19,9 +19,10 @@ extern "C" {
 #define MW_PLUGIN_VERSION_NUMBER 1000001
 
 typedef enum _mw_plugin_video_stream_index {
-    e_video_stream_index_main = 0,
-    e_video_stream_index_sub,
-    e_video_stream_index_shq,
+    e_video_stream_index_main = 0,  // Main Stream
+    e_video_stream_index_sub,       // Sub stream
+    e_video_stream_index_shq,       // SpeedHQ stream, NDI|HB program stream
+    e_video_stream_index_prvw,      // Preview stream, default for NDI|HB、 NDI|HX2 and NDI|HX3
 
     e_video_stream_index_max
 } mw_plugin_video_stream_index_t;
