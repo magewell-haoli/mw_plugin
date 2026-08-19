@@ -71,7 +71,7 @@ bool mw_plugin_init();
 void mw_plugin_shutdown();
 
 /** @brief Create metadata string for a video frame.
- * You should call this function immediately after capture the video frame.The metadata for NDIlib_video_frame_v2_t should contain this.
+ * You should call this function immediately after capture the video frame. The metadata for NDIlib_video_frame_v2_t should contain this.
     @param p_video_frame Pointer to the video frame descriptor.
     @return Allocated metadata string, or NULL on failure. The string length must not exceed 255. */
 char* mw_plugin_video_frame_metadata_create(uint32_t stream_index, const mw_plugin_video_frame_t *p_video_frame);
@@ -80,7 +80,7 @@ char* mw_plugin_video_frame_metadata_create(uint32_t stream_index, const mw_plug
 void mw_plugin_video_frame_metadata_free(uint32_t stream_index, char *metadata);
 
 /** @brief Create metadata string for an audio frame.
- * You should call this function immediately after capture the audio frame.The metadata for NDIlib_audio_frame_v3_t should contain this.
+ * You should call this function immediately after capture the audio frame. The metadata for NDIlib_audio_frame_v3_t should contain this.
     @param p_audio_frame Pointer to the audio frame descriptor.
     @return Allocated metadata string, or NULL on failure. The string length must not exceed 255. */
 char* mw_plugin_audio_frame_metadata_create(const mw_plugin_audio_frame_t *p_audio_frame);
@@ -88,7 +88,8 @@ char* mw_plugin_audio_frame_metadata_create(const mw_plugin_audio_frame_t *p_aud
 /** @brief Free the metadata string returned by mw_plugin_audio_frame_metadata_create. */
 void mw_plugin_audio_frame_metadata_free(char *metadata);
 
-/** @brief Create metadata string for the NDI source.The config data for NDIlib_send_create_v2 should contain this.
+/** @brief Create metadata string for the NDI source. The config data for NDIlib_send_create_v2 should contain this.
+ * The NDI sender should config discovery server, then get the metadata by NDIlib_find_get_current_sources_v2.
     @return Allocated metadata string, or NULL on failure. The string length must not exceed 255. */
 char* mw_plugin_ndi_source_metadata_create();
 
