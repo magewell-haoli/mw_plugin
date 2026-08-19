@@ -28,6 +28,7 @@ typedef enum _mw_plugin_video_stream_index {
 } mw_plugin_video_stream_index_t;
 
 typedef struct _mw_plugin_time_code {
+    bool    valid;
     uint8_t hours;      // Hours (0-23)
     uint8_t minutes;    // Minutes (0-59)
     uint8_t seconds;    // Seconds (0-59)
@@ -48,6 +49,8 @@ typedef struct _mw_plugin_video_frame {
         uint32_t nbytes;    // Number of valid bytes in the plane
         uint32_t stride;    // Stride in bytes per row
     } planes[4];            // Plane descriptors
+
+    mw_plugin_time_code_t time_code;    // TimeCode info
 } mw_plugin_video_frame_t;
 
 typedef struct _mw_plugin_audio_frame {
