@@ -5,6 +5,7 @@
 #include <string.h>
 #include <time.h>
 #include <sys/time.h>
+#include <inttypes.h>
 
 int mw_plugin_version()
 {
@@ -107,7 +108,7 @@ char* mw_plugin_ndi_source_metadata_create()
     if (!metadata) return NULL;
 
     static uint64_t g_source_id = 0;
-    snprintf(metadata, 256, "<magewell_metadata type=\"ndi_source\" value=%ld/>", g_source_id ++);
+    snprintf(metadata, 256, "<magewell_metadata type=\"ndi_source\" value=%" PRIu64 "/>", g_source_id ++);
 
     return metadata;
 }
