@@ -16,7 +16,7 @@
 extern "C" {
 #endif
 
-#define MW_PLUGIN_VERSION_NUMBER 1000001
+#define MW_PLUGIN_VERSION_NUMBER 1000002
 
 typedef enum _mw_plugin_video_stream_index {
     e_video_stream_index_main = 0,  // Main Stream
@@ -51,6 +51,8 @@ typedef struct _mw_plugin_video_frame {
     } planes[4];            // Plane descriptors
 
     mw_plugin_time_code_t time_code;    // TimeCode info
+
+    uint32_t cap_delay_ms;  // Time since frame captured
 } mw_plugin_video_frame_t;
 
 typedef struct _mw_plugin_audio_frame {
@@ -60,6 +62,8 @@ typedef struct _mw_plugin_audio_frame {
 
     void *p_data;           // Pointer to audio data buffer
     uint32_t nbytes;        // Number of valid bytes in the buffer
+
+    uint32_t cap_delay_ms;  // Time since frame captured
 } mw_plugin_audio_frame_t;
 
 /** @brief Get the version number of the MW plugin.
